@@ -1,7 +1,9 @@
 import openai
 import streamlit as st
 
-openai.api_key = "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"
+import mykey
+
+openai.api_key = mykey.key
 starting_messages = [
     {
         "role": "system",
@@ -39,8 +41,8 @@ def converse(messages):
 starting_messages.append(converse(starting_messages))
 
 
-message = st.text_input(label="Ask the helpful assistant something...")
-if st.button(label="Send"):
+message = st.text_input(label="Describe what you want the Python ReGex to achieve...")
+if st.button(label="Submit"):
     messages = starting_messages
     messages.append({"role": "user", "content": message})
     messages.append(converse(messages))
