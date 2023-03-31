@@ -1,9 +1,7 @@
 import openai
 import streamlit as st
 
-import mykey
-
-openai.api_key = mykey.key
+openai.api_key = st.secrets["mykey"]
 starting_messages = [
     {
         "role": "system",
